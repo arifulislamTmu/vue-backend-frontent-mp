@@ -148,29 +148,29 @@
                             </router-link>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <router-link to="/admin/users" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>
                                    Users
                                 </p>
-                            </a>
+                            </router-link>
                         </li>
 
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <router-link to="/admin/setting" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>
                                     Settings
                                 </p>
-                            </a>
+                            </router-link>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <router-link to="/admin/profile" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>
                                     Profile
                                 </p>
-                            </a>
+                            </router-link>
                         </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">
