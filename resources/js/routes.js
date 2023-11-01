@@ -7,10 +7,16 @@ import editEmployee from "./components/employee/edit.vue";
 import createSupplier from "./components/supplier/create.vue";
 import listSupplier from "./components/supplier/index.vue";
 import editSupplier from "./components/supplier/edit.vue";
+
 //Category route
 import createCategory from "./components/category/create.vue";
 import listCategory from "./components/category/index.vue";
 import editCategory from "./components/category/edit.vue";
+
+//Product route
+import createProduct from "./components/product/create.vue";
+import listProduct from "./components/product/index.vue";
+import editProduct from "./components/product/edit.vue";
 
 import AppointmentsList from "./pages/appointments/appointmentsList.vue";
 
@@ -71,6 +77,22 @@ export default [
         component: editCategory,
     },
 
+
+    {
+        path: "/create-product",
+        name: "createProduct",
+        component: createProduct,
+    },
+    {
+        path: "/list-product",
+        name: "listProduct",
+        component: listProduct,
+    },
+    {
+        path: "/edit-product/:id",
+        name: "edit-product",
+        component: editProduct,
+    },
 
 
     {

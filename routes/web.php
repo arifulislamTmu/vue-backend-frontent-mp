@@ -2,14 +2,12 @@
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\EmployeeController;
+use App\Http\Controllers\Api\ProductController;
 use App\Http\Controllers\Api\SupplierController;
 use App\Http\Controllers\ApplicationController;
 use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\UserController;
 
 
-Route::get("/api/user/", [UserController::class, "index"]);
-Route::post("/api/create-user/", [UserController::class, "createUser"]);
 
 //employee route
 Route::post("/api/employee/", [EmployeeController::class, "store"]);
@@ -23,6 +21,9 @@ Route::resource("supplier", SupplierController::class);
 
 //Category route
 Route::resource("category", CategoryController::class);
+
+//Product route
+Route::resource("product", ProductController::class);
 
 Route::get('{any}', ApplicationController::class)->where('any', '.*');
 
