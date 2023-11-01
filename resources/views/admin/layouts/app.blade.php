@@ -6,11 +6,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>AdminLTE 3 | Starter</title>
-    @vite(['resources/css/app.css','resources/js/app.js'])
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
 <body class="hold-transition sidebar-mini">
-    <div class="wrapper"  id="app">
+    <div class="wrapper" id="app">
 
         <nav class="main-header navbar navbar-expand navbar-white navbar-light">
 
@@ -138,26 +138,101 @@
 
             <div class="sidebar">
                 <nav class="mt-2">
-                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                        data-accordion="false">
                         <li class="nav-item">
-                            <router-link to="/admin/appointments" class="nav-link">
+                            <a href="#" active-class="active" class="nav-link ">
+                                <i class="nav-icon fas fa-edit"></i>
+                                <p>
+                                    Employee
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <router-link to="/create-employe" class="nav-link" active-class="active">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Create Employee</p>
+                                    </router-link>
+                                </li>
+                                <li class="nav-item">
+                                    <router-link to="/list-employee" class="nav-link" active-class="active">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Employee list</p>
+                                    </router-link>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" active-class="active" class="nav-link ">
+                                <i class="nav-icon fas fa-edit"></i>
+                                <p>
+                                    Supplier
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <router-link to="/create-supplier" class="nav-link" active-class="active">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Create Supplier</p>
+                                    </router-link>
+                                </li>
+                                <li class="nav-item">
+                                    <router-link to="/list-supplier" class="nav-link" active-class="active">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Supplier list</p>
+                                    </router-link>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" active-class="active" class="nav-link ">
+                                <i class="nav-icon fas fa-edit"></i>
+                                <p>
+                                    Category
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <router-link to="/create-category" class="nav-link" active-class="active">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Create Category</p>
+                                    </router-link>
+                                </li>
+                                <li class="nav-item">
+                                    <router-link to="/list-category" class="nav-link" active-class="active">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Category list</p>
+                                    </router-link>
+                                </li>
+                            </ul>
+                        </li>
+
+
+
+                        <li class="nav-item">
+                            <router-link to="/admin/appointments" active-class="active" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>
-                                   Appointments
+                                    Appointments
                                 </p>
                             </router-link>
                         </li>
                         <li class="nav-item">
-                            <router-link to="/admin/users" class="nav-link">
+                            <router-link to="/admin/users" active-class="active" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>
-                                   Users
+                                    Users
                                 </p>
                             </router-link>
                         </li>
 
                         <li class="nav-item">
-                            <router-link to="/admin/setting" class="nav-link">
+                            <router-link to="/admin/setting" active-class="active" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>
                                     Settings
@@ -165,7 +240,7 @@
                             </router-link>
                         </li>
                         <li class="nav-item">
-                            <router-link to="/admin/profile" class="nav-link">
+                            <router-link to="/admin/profile" active-class="active" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>
                                     Profile
@@ -173,7 +248,7 @@
                             </router-link>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="#" class="nav-link" active-class="active">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>
                                     Logout
