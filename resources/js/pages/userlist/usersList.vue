@@ -1,5 +1,4 @@
 
-
 <script setup>
 import axios from 'axios';
 import { ref, onMounted, reactive } from 'vue';
@@ -13,18 +12,6 @@ const form = reactive({
     password: ''
 })
 
-// const createUser = () =>{
-//     axios.post('/api/user/create', form).then((response)=>{
-//         console.log(response);
-//         form.name = '';
-//         form.email= '';
-//         form.password= '';
-
-//         $('#modal-default').modal('hide');
-
-
-//     });
-// }
 const schema = yup.object({
     name: yup.string().required(),
     email: yup.string().required(),
@@ -47,6 +34,8 @@ const getUsers = () => {
     });
 }
 
+
+
 onMounted(() => {
     getUsers();
 });
@@ -68,9 +57,35 @@ onMounted(() => {
       </div>
     </div>
   </div>
-
+  <div class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <router-link class="btn btn-success" to="/admin/user-create">Add user</router-link>
+        <!-- <div class="card table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">S.L</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="user in users" :key="user.id">
+                <td scope="row">{{ user.id }}</td>
+                <td>{{ user.name }}</td>
+                <td>{{ user.email }}</td>
+                <td>
+                  <button class="btn btn-primary">edit</button>
+                  <button class="btn btn-danger">Delete</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div> -->
+      </div>
+    </div>
+  </div>
 </template>
 <!-- vue -->
-<script setup>
-
-</script>

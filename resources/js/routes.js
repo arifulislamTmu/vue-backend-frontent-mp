@@ -13,8 +13,7 @@ import listCategory from "./components/category/index.vue";
 import editCategory from "./components/category/edit.vue";
 
 import AppointmentsList from "./pages/appointments/appointmentsList.vue";
-import UsersList from "./pages/userlist/usersList.vue";
-import UserCreate from "./pages/userlist/createUser.vue";
+
 import Settings from "./pages/setting/setting.vue";
 import Profile from "./pages/profile/profile.vue";
 
@@ -78,17 +77,6 @@ export default [
         path: "/admin/appointments",
         name: "admin.appointments",
         component: AppointmentsList,
-    },
-    {
-        path: "/admin/users",
-        name: "admin.users",
-        component: UsersList,
-    },
-
-    {
-        path: "/admin/user-create",
-        name: "admin.user-create",
-        component: UserCreate,
     },
     {
         path: "/admin/setting",
