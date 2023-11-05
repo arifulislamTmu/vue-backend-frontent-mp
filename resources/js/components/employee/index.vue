@@ -49,8 +49,8 @@
                       <td>{{ index + 1 }}</td>
                       <td>{{ user.name }}</td>
                       <td>{{ user.email }}</td>
-                      <td>{{ user.phone }}</td>
                       <td><img :src="user.photo" alt="" style="width: 50px" /></td>
+                      <td>{{ user.phone }}</td>
                       <td>
                         <router-link :to="{name:'edit-employee',params:{id:user.id}}" class="btn btn-success mr-2">Edit</router-link>
                         <button class="btn btn-danger" @click="employeeDelete(user.id)">

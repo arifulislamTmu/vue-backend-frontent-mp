@@ -237,7 +237,56 @@
                         </li>
 
 
+                        <li class="nav-item">
+                            <a href="#" active-class="active" class="nav-link ">
+                                <i class="nav-icon fas fa-edit"></i>
+                                <p>
+                                    Expanse
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <router-link to="/create-expanse" class="nav-link" active-class="active">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Create Expanse</p>
+                                    </router-link>
+                                </li>
+                                <li class="nav-item">
+                                    <router-link to="/list-expanse" class="nav-link" active-class="active">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Expanse list</p>
+                                    </router-link>
+                                </li>
+                            </ul>
+                        </li>
 
+
+                        <li class="nav-item">
+                            <a href="#" active-class="active" class="nav-link ">
+                                <i class="nav-icon fas fa-edit"></i>
+                                <p>
+                                    Employee Salary
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <router-link to="/list-salary" class="nav-link" active-class="active">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Create Salary</p>
+                                    </router-link>
+                                </li>
+                                <li class="nav-item">
+                                    <router-link to="/all-salary" class="nav-link" active-class="active">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Salary list</p>
+                                    </router-link>
+                                 </li>
+
+
+                            </ul>
+                        </li>
 
                         <li class="nav-item">
                             <router-link to="/admin/appointments" active-class="active" class="nav-link">
@@ -278,7 +327,7 @@
 
         </aside>
 
-        <div class="content-wrapper">
+        <div class="content-wrapper bg-dark">
             <router-view></router-view>
         </div>
 
@@ -302,6 +351,7 @@
             reserved.
         </footer>
     </div>
+ 
 </body>
 
 </html>

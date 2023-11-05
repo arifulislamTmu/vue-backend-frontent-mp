@@ -17,6 +17,17 @@ import editCategory from "./components/category/edit.vue";
 import createProduct from "./components/product/create.vue";
 import listProduct from "./components/product/index.vue";
 import editProduct from "./components/product/edit.vue";
+//expanse route
+import createExpanse from "./components/expanse/create.vue";
+import listExpanse from "./components/expanse/index.vue";
+import editExpanse from "./components/expanse/edit.vue";
+
+//salary route
+import AllSalary from "./components/salary/all-salary.vue";
+import listSalary from "./components/salary/index.vue";
+import editSalary from "./components/salary/edit.vue";
+import paySalaryDetails from "./components/salary/pay-salary-details.vue";
+import salaryEdit from "./components/salary/paySalaryEdit.vue";
 
 import AppointmentsList from "./pages/appointments/appointmentsList.vue";
 
@@ -29,6 +40,14 @@ export default [
         name: "admin.dashboard",
         component: Dashboard,
     },
+    {
+        path: "/salary-edit/:id",
+        name: "salary-edit",
+        component: salaryEdit,
+    },
+
+
+
     {
         path: "/create-employe",
         name: "createEmployee",
@@ -77,7 +96,6 @@ export default [
         component: editCategory,
     },
 
-
     {
         path: "/create-product",
         name: "createProduct",
@@ -92,6 +110,45 @@ export default [
         path: "/edit-product/:id",
         name: "edit-product",
         component: editProduct,
+    },
+
+
+    {
+        path: "/create-expanse",
+        name: "createExpanse",
+        component: createExpanse,
+    },
+    {
+        path: "/list-expanse",
+        name: "listExpanse",
+        component: listExpanse,
+    },
+    {
+        path: "/edit-expanse/:id",
+        name: "edit-expanse",
+        component: editExpanse,
+    },
+
+
+    {
+        path: "/all-salary",
+        name: "allSalary",
+        component: AllSalary,
+    },
+    {
+        path: "/list-salary",
+        name: "listSalary",
+        component: listSalary,
+    },
+    {
+        path: "/pay-salary/:id",
+        name: "pay-salary",
+        component: editSalary,
+    },
+    {
+        path: "/pay-salary-details/:id",
+        name: "pay-salary-details",
+        component: paySalaryDetails,
     },
 
 

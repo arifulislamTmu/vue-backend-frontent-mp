@@ -20,9 +20,7 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-12">
-          <router-link to="/admin/dashboard" class="btn btn-primary mb-2"
-            >Back</router-link
-          >
+          <router-link to="/admin/dashboard" class="btn btn-primary mb-2">Back</router-link>
           <div class="card">
             <div class="card-header">
               <h4 class="text-center">Add Product</h4>
@@ -43,8 +41,9 @@
                     <div class="mb-3">
                      <label for="">Category Name</label>
                       <select class="form-control" v-model="form.category_id">
-                        <option :value="category.id" v-for="category in categories" >{{ category.category_name }}</option>
+                        <option :value="category.id"  v-for="category in categories" > {{ category.category_name }}</option>
                       </select>
+
                     </div>
                   </div>
                   <div class="col-4">
@@ -71,13 +70,7 @@
                       <small class="text-danger" v-if="errors.root">{{ errors.root[0]   }}</small>
                     </div>
                   </div>
-                  <div class="col-4">
-                    <div class="mb-3">
-                    <label for="">Buying price</label>
-                      <input type="text" class="form-control" v-model="form.buying_price"  />
-                      <small class="text-danger" v-if="errors.buying_price">{{ errors.buying_price[0]   }}</small>
-                    </div>
-                  </div>
+
 
                   <div class="col-4">
                     <div class="mb-3">
@@ -86,61 +79,37 @@
                       <small class="text-danger" v-if="errors.product_quantity">{{ errors.product_quantity[0]   }}</small>
                     </div>
                   </div>
-
                   <div class="col-4">
                     <div class="mb-3">
+                      <label for="">Selling price</label>
                       <input
-                        type="text"
-                        class="form-control"
-                        v-model="form.buying_date"
-                        placeholder="buying_date"
-                      />
-                    </div>
-                  </div>
-
-                  <div class="col-4">
-                    <div class="mb-3">
-                      <input
-                        type="text"
-                        class="form-control"
-                        v-model="form.selling_price"
-                        placeholder="selling_price"
-                      />
+                        type="text" class="form-control" v-model="form.selling_price" />
                     </div>
                   </div>
                   <div class="col-4">
                     <div class="mb-3">
-                      <input
-                        type="text"
-                        class="form-control"
-                        v-model="form.product_quantity"
-                        placeholder="product_quantity"
-                      />
+                    <label for="">Buying price</label>
+                      <input type="text" class="form-control" v-model="form.buying_price"  />
+                      <small class="text-danger" v-if="errors.buying_price">{{ errors.buying_price[0]   }}</small>
                     </div>
                   </div>
-                  <div class="col-6">
+                  <div class="col-4">
+                    <div class="mb-3">
+                    <label for="">Buying price</label>
+                      <input type="date" class="form-control" v-model="form.buying_date"  />
+                      <small class="text-danger" v-if="errors.buying_date">{{ errors.buying_date[0]   }}</small>
+                    </div>
+                  </div>
+                  <div class="col-8">
                     <div class="row">
                       <div class="col-6">
                         <div class="mb-3">
-                          <input
-                            type="file"
-                            class="form-control"
-                            @change="onSelectedFile"
-                          />
+                          <label for="">Product Image</label>
+                          <input type="file" class="form-control" @change="onSelectedFile" />
                         </div>
                       </div>
                       <div class="col-6" v-if="form.photo">
-                        <img
-                          :src="form.photo"
-                          alt=""
-                          id="image"
-                          style="
-                            width: 80px;
-                            height: 60px;
-                            border: 2px solid red;
-                            margin-bottom: 2px;
-                          "
-                        />
+                        <img :src="form.photo" alt="" id="image" style="width: 80px;height: 60px;border: 2px solid red;margin-bottom: 2px;"  />
                       </div>
                     </div>
                   </div>
@@ -156,17 +125,22 @@
 </template>
 <script setup>
 import { reactive, ref, onMounted } from "vue";
-
+import { useRouter } from "vue-router";
+import axios from "axios";
 const suppliers  = ref([]);
 const categories = ref([]);
-
+const router = useRouter();
 const form = reactive({
   name: "",
+  supplier_id : "",
+  category_id:"",
   product_code: "",
   root: "",
   buying_price: "",
   selling_price: "",
   product_quantity: "",
+  buying_date: "",
+  photo: "",
 });
 
 const errors = ref({
@@ -174,6 +148,7 @@ const errors = ref({
   product_code: "",
   root: "",
   buying_price: "",
+  buying_date: "",
   selling_price: "",
   product_quantity: "",
 });
@@ -188,6 +163,27 @@ onMounted(() => {
     .then((response) =>{
         categories.value = response.data;
     }).catch();
-})
+});
+
+const onSelectedFile = (event) => {
+  let file = event.target.files[0];
+  let reader = new FileReader();
+  reader.onload = (event) => {
+    form.photo = event.target.result;
+  };
+
+  reader.readAsDataURL(file);
+};
+
+const storeProduct = () =>{
+  axios.post('product', form)
+  .then((response) => {
+    Notification.success();
+    router.push('/list-product')
+  })
+  .catch((error)=>{
+    errors.value = error.response.data.errors;
+  }) ;
+}
 
 </script>
