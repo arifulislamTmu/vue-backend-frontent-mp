@@ -21,16 +21,22 @@ class CategoryController extends Controller
 
     public function show(string $id)
     {
-        //
+        $category = Category::find($id);
+        return $category;
     }
 
     public function update(Request $request, string $id)
     {
-        //
+        $validate = $request->validate([
+            "name"=> "required",
+        ]);
+        $category = Category::find($id);
+        $category->category_name = $request->name;
+        $category->save();
     }
 
     public function destroy(string $id)
     {
-        //
+        $category = Category::find($id)->delete();
     }
 }

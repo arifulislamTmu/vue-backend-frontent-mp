@@ -44,7 +44,7 @@
                         <td>{{ salary.amount }}</td>
                         <td>{{ salary.salary_date }}</td>
                         <td>
-                          <router-link :to="/salary-edit/+ salary.id" class="btn btn-success mr-2">Salary Edit</router-link>
+                          <router-link :to="/salary-edit/+ salary.emp_salary_id" class="btn btn-success mr-2">Salary Edit</router-link>
                           <!-- <router-link :to="{name:'salary-edit', params:{id:salary.name}}" class="btn btn-success mr-2">Salary Edit</router-link> -->
                         </td>
                       </tr>
@@ -72,8 +72,10 @@
   });
   const getSalary = () => {
     const id = route.params.id;
+
     axios.get("/salary-details/"+id).then((response) => {
         salary_list.value = response.data;
+       
     });
   };
   </script>

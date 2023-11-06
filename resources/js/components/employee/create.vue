@@ -1,9 +1,10 @@
 <template>
   <div class="content-header">
     <div class="container-fluid">
-      <div class="row mb-2">
+      <div class="row mb-1">
         <div class="col-sm-6">
-          <h1 class="m-0">Employee</h1>
+          <router-link to="/list-employee" class="btn btn-info mb-2 btn-sm"><i class="fas fa-arrow-left"></i> Employee
+            List</router-link>
         </div>
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
@@ -20,24 +21,16 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-12">
-          <router-link to="/admin/dashboard" class="btn btn-primary mb-2"
-            >Back</router-link
-          >
-          <div class="card">
+          <div class="card card-primary card-outline">
             <div class="card-header">
-              <h4 class="text-center">Add Employee</h4>
+              <h5 class="text-center m-1 p-1">Add new employee</h5>
             </div>
             <div class="card-body">
               <form @submit.prevent="storeEmployee" enctype="multipart/form-data">
                 <div class="row">
                   <div class="col-6">
                     <div class="mb-3">
-                      <input
-                        type="text"
-                        class="form-control"
-                        v-model="form.name"
-                        placeholder="Employee Name"
-                      />
+                      <input type="text" class="form-control" v-model="form.name" placeholder="Employee Name" />
                       <small class="text-danger" v-if="errors.name">{{
                         errors.name[0]
                       }}</small>
@@ -46,12 +39,7 @@
 
                   <div class="col-6">
                     <div class="mb-3">
-                      <input
-                        type="text"
-                        class="form-control"
-                        v-model="form.nid"
-                        placeholder="Employee NID"
-                      />
+                      <input type="text" class="form-control" v-model="form.nid" placeholder="Employee NID" />
                       <small class="text-danger" v-if="errors.nid">{{
                         errors.nid[0]
                       }}</small>
@@ -60,12 +48,7 @@
 
                   <div class="col-6">
                     <div class="mb-3">
-                      <input
-                        type="text"
-                        class="form-control"
-                        v-model="form.email"
-                        placeholder="Employee Email"
-                      />
+                      <input type="text" class="form-control" v-model="form.email" placeholder="Employee Email" />
                       <small class="text-danger" v-if="errors.email">{{
                         errors.email[0]
                       }}</small>
@@ -74,40 +57,31 @@
 
                   <div class="col-6">
                     <div class="mb-3">
-                      <input
-                        type="text"
-                        class="form-control"
-                        v-model="form.address"
-                        placeholder="Employee Address"
-                      />
+                      <input type="text" class="form-control" v-model="form.address" placeholder="Employee Address" />
                     </div>
                   </div>
 
                   <div class="col-6">
                     <div class="mb-3">
-                      <input
-                        type="date"
-                        class="form-control"
-                        v-model="form.joining_date"
-                        placeholder="Joining Date"
-                      />
+                      <input type="date" class="form-control" v-model="form.joining_date" placeholder="Joining Date" />
                     </div>
                   </div>
 
                   <div class="col-6">
                     <div class="row">
-                        <div class="col-6 ">
-                            <div class="mb-3">
-                                <input type="file" class="form-control" @change="onSelectedFile" />
-                              </div>
+                      <div class="col-6 ">
+                        <div class="mb-3">
+                          <input type="file" class="form-control" @change="onSelectedFile" />
                         </div>
-                        <div class="col-6 " v-if="form.photo">
-                            <img :src="form.photo" alt="" id="image" style=" width: 80px; height: 60px; border:2px solid red; margin-bottom:2px;" />
-                        </div>
+                      </div>
+                      <div class="col-6 " v-if="form.photo">
+                        <img :src="form.photo" alt="" id="image"
+                          style=" width: 80px; height: 60px; border:2px solid red; margin-bottom:2px;" />
+                      </div>
                     </div>
                   </div>
                 </div>
-                <button type="submit" class="btn btn-block btn-success">Save</button>
+                <button type="submit" class="btn btn-success btn-sm">Employee add</button>
               </form>
             </div>
           </div>

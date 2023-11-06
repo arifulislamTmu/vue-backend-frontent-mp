@@ -327,7 +327,7 @@
 
         </aside>
 
-        <div class="content-wrapper bg-dark">
+        <div class="content-wrapper ">
             <router-view></router-view>
         </div>
 

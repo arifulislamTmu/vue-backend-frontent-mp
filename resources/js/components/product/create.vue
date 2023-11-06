@@ -30,7 +30,7 @@
                 <div class="row">
                   <div class="col-4">
                     <div class="mb-3">
-                        <label for="">Product Name</label>
+                      <label for="">Product Name</label>
                       <input type="text" class="form-control" v-model="form.name" />
                       <small class="text-danger" v-if="errors.name">{{
                         errors.name[0]
@@ -39,25 +39,25 @@
                   </div>
                   <div class="col-4">
                     <div class="mb-3">
-                     <label for="">Category Name</label>
+                      <label for="">Category Name</label>
                       <select class="form-control" v-model="form.category_id">
-                        <option :value="category.id"  v-for="category in categories" > {{ category.category_name }}</option>
+                        <option :value="category.id" v-for="category in categories"> {{ category.category_name }}</option>
                       </select>
 
                     </div>
                   </div>
                   <div class="col-4">
                     <div class="mb-3">
-                        <label for="">Supplier Name</label>
+                      <label for="">Supplier Name</label>
                       <select class="form-control" v-model="form.supplier_id">
-                        <option :value="supplier.id" v-for="supplier in suppliers" >{{ supplier.name }}</option>
+                        <option :value="supplier.id" v-for="supplier in suppliers">{{ supplier.name }}</option>
                       </select>
                     </div>
                   </div>
                   <div class="col-4">
                     <div class="mb-3">
-                    <label for="">Product Code</label>
-                      <input type="text" class="form-control" v-model="form.product_code" placeholder="Product code"/>
+                      <label for="">Product Code</label>
+                      <input type="text" class="form-control" v-model="form.product_code" placeholder="Product code" />
                       <small class="text-danger" v-if="errors.product_code">{{
                         errors.product_code[0]
                       }}</small>
@@ -65,39 +65,38 @@
                   </div>
                   <div class="col-4">
                     <div class="mb-3">
-                        <label for="">Product Root</label>
+                      <label for="">Product Root</label>
                       <input type="text" class="form-control" v-model="form.root" />
-                      <small class="text-danger" v-if="errors.root">{{ errors.root[0]   }}</small>
+                      <small class="text-danger" v-if="errors.root">{{ errors.root[0] }}</small>
                     </div>
                   </div>
 
 
                   <div class="col-4">
                     <div class="mb-3">
-                        <label for=""> Product quantity</label>
-                      <input  type="text" class="form-control" v-model="form.product_quantity" />
-                      <small class="text-danger" v-if="errors.product_quantity">{{ errors.product_quantity[0]   }}</small>
+                      <label for=""> Product quantity</label>
+                      <input type="text" class="form-control" v-model="form.product_quantity" />
+                      <small class="text-danger" v-if="errors.product_quantity">{{ errors.product_quantity[0] }}</small>
                     </div>
                   </div>
                   <div class="col-4">
                     <div class="mb-3">
                       <label for="">Selling price</label>
-                      <input
-                        type="text" class="form-control" v-model="form.selling_price" />
+                      <input type="text" class="form-control" v-model="form.selling_price" />
                     </div>
                   </div>
                   <div class="col-4">
                     <div class="mb-3">
-                    <label for="">Buying price</label>
-                      <input type="text" class="form-control" v-model="form.buying_price"  />
-                      <small class="text-danger" v-if="errors.buying_price">{{ errors.buying_price[0]   }}</small>
+                      <label for="">Buying price</label>
+                      <input type="text" class="form-control" v-model="form.buying_price" />
+                      <small class="text-danger" v-if="errors.buying_price">{{ errors.buying_price[0] }}</small>
                     </div>
                   </div>
                   <div class="col-4">
                     <div class="mb-3">
-                    <label for="">Buying price</label>
-                      <input type="date" class="form-control" v-model="form.buying_date"  />
-                      <small class="text-danger" v-if="errors.buying_date">{{ errors.buying_date[0]   }}</small>
+                      <label for="">Buying price</label>
+                      <input type="date" class="form-control" v-model="form.buying_date" />
+                      <small class="text-danger" v-if="errors.buying_date">{{ errors.buying_date[0] }}</small>
                     </div>
                   </div>
                   <div class="col-8">
@@ -109,7 +108,8 @@
                         </div>
                       </div>
                       <div class="col-6" v-if="form.photo">
-                        <img :src="form.photo" alt="" id="image" style="width: 80px;height: 60px;border: 2px solid red;margin-bottom: 2px;"  />
+                        <img :src="form.photo" alt="" id="image"
+                          style="width: 80px;height: 60px;border: 2px solid red;margin-bottom: 2px;" />
                       </div>
                     </div>
                   </div>
@@ -127,13 +127,13 @@
 import { reactive, ref, onMounted } from "vue";
 import { useRouter } from "vue-router";
 import axios from "axios";
-const suppliers  = ref([]);
+const suppliers = ref([]);
 const categories = ref([]);
 const router = useRouter();
 const form = reactive({
   name: "",
-  supplier_id : "",
-  category_id:"",
+  supplier_id: "",
+  category_id: "",
   product_code: "",
   root: "",
   buying_price: "",
@@ -154,14 +154,14 @@ const errors = ref({
 });
 
 onMounted(() => {
-    axios.get('supplier')
-    .then((response) =>{
-        suppliers.value = response.data;
+  axios.get('supplier')
+    .then((response) => {
+      suppliers.value = response.data;
     }).catch();
 
-    axios.get('category')
-    .then((response) =>{
-        categories.value = response.data;
+  axios.get('category')
+    .then((response) => {
+      categories.value = response.data;
     }).catch();
 });
 
@@ -175,15 +175,15 @@ const onSelectedFile = (event) => {
   reader.readAsDataURL(file);
 };
 
-const storeProduct = () =>{
+const storeProduct = () => {
   axios.post('product', form)
-  .then((response) => {
-    Notification.success();
-    router.push('/list-product')
-  })
-  .catch((error)=>{
-    errors.value = error.response.data.errors;
-  }) ;
+    .then((response) => {
+      Notification.success();
+      router.push('/list-product')
+    })
+    .catch((error) => {
+      errors.value = error.response.data.errors;
+    });
 }
 
 </script>

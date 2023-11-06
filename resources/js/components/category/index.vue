@@ -47,7 +47,7 @@
                         <td>{{ category.category_name }}</td>
                         <td>
                           <router-link :to="{name:'edit-category',params:{id:category.id}}" class="btn btn-success mr-2">Edit</router-link>
-                          <button class="btn btn-danger" @click="employeeDelete(category.id)">
+                          <button class="btn btn-danger" @click="CategoryDelete(category.id)">
                             Delete
                           </button>
                         </td>
@@ -77,12 +77,43 @@ const filteredCategory = computed(() => {
   });
 });
 
+const CategoryDelete = (id) =>{
+
+  Swal.fire({
+          title: "Are you sure?",
+          text: "You won't be able to revert this!",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#3085d6",
+          cancelButtonColor: "#d33",
+          confirmButtonText: "Yes, delete it!",
+      })
+      .then((result) => {
+          if (result.isConfirmed) {
+          axios.delete(`/category/${id}`)
+          .then((response) => {
+            getCategory()
+          }).catch(()=>{
+
+          });
+          Swal.fire(
+              "Deleted!",
+              "Your file has been deleted.", "success"
+           );
+          }
+      });
+} 
+
 onMounted(() => {
-    axios.get('category')
+    getCategory()
+});
+
+const getCategory = () =>{
+  axios.get('category')
     .then((response) =>{
         categories.value = response.data;
     })
     .catch();
-});
+}
 
 </script>

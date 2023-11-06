@@ -56,7 +56,7 @@ class EmployeeSalaryController extends Controller
     {
         $salary_details = DB::table('employee_salaries')
                             ->join('employees', 'employee_salaries.employee_id', 'employees.id')
-                            ->select('employee_salaries.*','employees.*')
+                            ->select('employee_salaries.*', 'employee_salaries.id as emp_salary_id','employees.*')
                             ->where('salary_month', $id)->get();
                             return $salary_details;
     }
@@ -67,7 +67,7 @@ class EmployeeSalaryController extends Controller
         $salary_edit = DB::table('employee_salaries')
                             ->join('employees', 'employee_salaries.employee_id', 'employees.id')
                             ->select('employee_salaries.*','employees.*')
-                            ->where('employee_salaries.employee_id', $id)->first();
+                            ->where('employee_salaries.id', $id)->first();
                             return response()->json($salary_edit) ;
     }
 
@@ -81,24 +81,11 @@ class EmployeeSalaryController extends Controller
        $salary_update->save();
     }
 
-
-
-
-
-
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
-    {
-        //
-    }
+ 
 
-
-
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(string $id)
     {
         //

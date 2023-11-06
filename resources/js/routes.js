@@ -76,7 +76,7 @@ export default [
     },
     {
         path: "/edit-supplier/:id",
-        name: "edit-employee",
+        name: "edit-supplier",
         component: editSupplier,
     },
 

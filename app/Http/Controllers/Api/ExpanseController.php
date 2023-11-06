@@ -40,19 +40,25 @@ class ExpanseController extends Controller
      */
     public function show(string $id)
     {
-        //
+       return $salary_edit = expence::find($id);
     }
 
     public function update(Request $request, string $id)
     {
-
+        $validData =  $request->validate([
+            'details' => 'required',
+            'amount' => 'required',
+        ]);
+        $expanse = expence::find($id);
+        $expanse->details = $request->details;
+        $expanse->amount = $request->amount;
+        $expanse->expanse_date = Carbon::now();
+        $expanse->save();
+        return $expanse;
     }
-
-    /**
-     * Remove the specified resource from storage.
-     */
+    
     public function destroy(string $id)
     {
-        //
+      return $expa = expence::find($id)->delete();
     }
 }

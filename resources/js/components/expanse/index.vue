@@ -80,13 +80,43 @@ const filteredEmployee = computed(() => {
 });
 
 const expanseDelete = (id) => {
-    alert(id);
+    
+  Swal.fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!",
+    })
+    .then((result) => {
+        if (result.isConfirmed) {
+        axios.delete("/expanse/" +id)
+        .then((response) => {
+          getExpanse();
+        }).catch(()=>{
+
+        });
+        Swal.fire(
+            "Deleted!",
+            "Your file has been deleted.", "success"
+         );
+        }
+    });
+
+
 }
  onMounted(() => {
-    axios.get('expanse')
+   getExpanse();
+
+});
+
+const getExpanse = () =>{
+  axios.get('expanse')
     .then((response) =>{
         expanses.value = response.data;
-    })
-});
+    });
+}
 
 </script>

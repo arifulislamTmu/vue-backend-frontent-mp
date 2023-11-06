@@ -1,13 +1,13 @@
 <template>
   <div class="content-header">
     <div class="container-fluid">
-      <div class="row mb-2">
+      <div class="row mb-1">
         <div class="col-sm-6">
-          <h1 class="m-0">Employee List</h1>
+          <router-link to="/create-employe" class="btn btn-info mb-2 btn-sm"><i class="fas fa-arrow-left"></i> Add new employee</router-link>
         </div>
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><a href="#">Employee</a></li>
+            <li class="breadcrumb-item"><a href="#">Employee list</a></li>
             <li class="breadcrumb-item active">Page</li>
           </ol>
         </div>
@@ -19,9 +19,9 @@
       <div class="row">
         <!-- <router-link class="btn btn-success" to="user-create">Add user</router-link> -->
         <div class="col-12">
-          <div class="card">
+          <div class="card card-primary card-outline">
             <div class="card-header text-center">
-              <h4>Employee list</h4>
+              <h5 class="m-1 p-1" >Employee list</h5>
             </div>
             <div class="card-body">
               <div class="d-flex justify-content-end mb-2">
@@ -52,9 +52,9 @@
                       <td><img :src="user.photo" alt="" style="width: 50px" /></td>
                       <td>{{ user.phone }}</td>
                       <td>
-                        <router-link :to="{name:'edit-employee',params:{id:user.id}}" class="btn btn-success mr-2">Edit</router-link>
-                        <button class="btn btn-danger" @click="employeeDelete(user.id)">
-                          Delete
+                        <router-link :to="{name:'edit-employee',params:{id:user.id}}" class="btn btn-primary mr-2 btn-sm">  <i class="fas fa-edit"></i> Edit </router-link>
+                        <button class="btn btn-danger btn-sm" @click="employeeDelete(user.id)">
+                          <i class="fas fa-trash-alt"></i> Delete
                         </button>
                       </td>
                     </tr>
