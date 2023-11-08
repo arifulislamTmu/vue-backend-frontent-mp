@@ -5,6 +5,7 @@ use App\Http\Controllers\Api\EmployeeController;
 use App\Http\Controllers\Api\EmployeeSalaryController;
 use App\Http\Controllers\Api\ExpanceController;
 use App\Http\Controllers\Api\ExpanseController;
+use App\Http\Controllers\Api\POSController;
 use App\Http\Controllers\Api\ProductController;
 use App\Http\Controllers\Api\SupplierController;
 use App\Http\Controllers\ApplicationController;
@@ -47,8 +48,8 @@ Route::get('/salary-details/{id}', [EmployeeSalaryController::class, "salary_det
 Route::get('/api/salary-edit/{id}', [EmployeeSalaryController::class, "salary_update"]);
 Route::post('/api/salary/update/{id}', [EmployeeSalaryController::class, "salaryUpdate"]);
 
+Route::get('/api/pos/get/category/{id}', [POSController::class, "getProductByCategory"]);
 
 Route::get('{any}', ApplicationController::class)->where('any', '.*');
-
 
 

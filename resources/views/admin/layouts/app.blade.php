@@ -136,6 +136,12 @@
                 <span class="brand-text font-weight-light">Dashboard</span>
             </router-link>
 
+
+            <router-link to="/point-of-sale" class="brand-link bg-primary p-0 ml-0 text-center">
+                <span class="">POS</span>
+            </router-link>
+
+
             <div class="sidebar">
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
@@ -351,7 +357,7 @@
             reserved.
         </footer>
     </div>
- 
+
 </body>
 
 </html>

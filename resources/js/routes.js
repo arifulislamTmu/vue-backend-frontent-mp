@@ -29,6 +29,10 @@ import editSalary from "./components/salary/edit.vue";
 import paySalaryDetails from "./components/salary/pay-salary-details.vue";
 import salaryEdit from "./components/salary/paySalaryEdit.vue";
 
+// Point of sale
+import PointOfSale from "./components/pos/point-of-sale.vue";
+
+
 import AppointmentsList from "./pages/appointments/appointmentsList.vue";
 
 import Settings from "./pages/setting/setting.vue";
@@ -150,6 +154,15 @@ export default [
         name: "pay-salary-details",
         component: paySalaryDetails,
     },
+
+    {
+        path: "/point-of-sale",
+        name: "point-of-sale",
+        component: PointOfSale,
+    },
+
+
+
 
 
     {
