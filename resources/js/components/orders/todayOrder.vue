@@ -3,11 +3,11 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Supplier List</h1>
+            <h1 class="m-0">Today orders</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Supplier</a></li>
+              <li class="breadcrumb-item"><a href="#">Orders</a></li>
               <li class="breadcrumb-item active">Page</li>
             </ol>
           </div>
@@ -21,7 +21,7 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header text-center">
-                <h4>Supplier list</h4>
+                <h4>Today Orders</h4>
               </div>
               <div class="card-body">
                 <div class="d-flex justify-content-end mb-2">
@@ -35,32 +35,36 @@
                 <div class="table-responsive">
                   <table class="table">
                     <thead>
+
+
                       <tr>
                         <th scope="col">S.L</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Photo</th>
-                        <th scope="col">Shop Name</th>
+                        <th scope="col">Customer Name</th>
+                        <th>Total</th>
+                        <th scope="col">Pay Amount</th>
+                        <th scope="col">Due Amount</th>
+                        <th scope="col">Qty</th>
+                        <th scope="col">Date</th>
                         <th scope="col">Action</th>
                       </tr>
                     </thead>
                     <tbody>
-                      <tr v-if=" filteredSupplier.length > 0 " v-for="(user, index) in filteredSupplier" :key="user.id">
+                      <!--   v-if=" filteredSupplier.length > 0 " -->
+                      <tr  v-for="(order, index) in filteredSupplier" :key="order.id">
                         <td>{{ index + 1 }}</td>
-                        <td>{{ user.name }}</td>
-                        <td>{{ user.email }}</td>
-                        <td><img :src="user.photo" alt="" style="width: 50px" /></td>
-                        <td>{{ user.shop_name }}</td>
+                        <td>{{ order.cus_name }}</td>
+                        <td>{{ order.total }}</td>
+                        <td>{{ order.payBill }}</td>
+                        <td>{{ order.dueBill }}</td>
+                        <td>{{ order.qty }}</td>
+                        <td>{{ order.order_date }}</td>
                         <td>
-                          <router-link :to="{name:'edit-employee',params:{id:user.id}}" class="btn btn-success mr-2">Edit</router-link>
-                          <button class="btn btn-danger" @click="supplierDelete(user.id)">
-                            Delete
-                          </button>
+                          <router-link :to="{name:'orderDetails',params:{id:order.id}}" class="btn btn-success mr-2">View</router-link>
                         </td>
                       </tr>
-                      <tr v-else>
+                     <!--  <tr v-else>
                         <td colspan="5" class="text-danger text-center" >Data Not Found</td>
-                      </tr>
+                      </tr> -->
                     </tbody>
                   </table>
                 </div>
@@ -76,7 +80,7 @@
   import { ref, onMounted, computed } from "vue";
   import axios from "axios";
 
-  const users = ref([]);
+  const todayOrders = ref([]);
   const filtersSearch = ref("");
 
   onMounted(() => {
@@ -84,41 +88,18 @@
   });
 
   const filteredSupplier = computed(() => {
-    return users.value.filter((user) => {
+    return todayOrders.value.filter((todayOrder) => {
       const search = filtersSearch.value.toLowerCase();
-      return user.name.toLowerCase().includes(search) || user.shop_name.includes(search);
+      return todayOrder.cus_name.toLowerCase().includes(search);
     });
   });
 
   const getUsers = () => {
-    axios.get("/supplier/").then((response) => {
-      users.value = response.data;
+    axios.get("/api/today/orders/").then((response) => {
+      todayOrders.value = response.data;
+      console.log(todayOrders.value);
     });
   };
 
-  const supplierDelete = (id) => {
-      Swal.fire({
-          title: "Are you sure?",
-          text: "You won't be able to revert this!",
-          icon: "warning",
-          showCancelButton: true,
-          confirmButtonColor: "#3085d6",
-          cancelButtonColor: "#d33",
-          confirmButtonText: "Yes, delete it!",
-      })
-      .then((result) => {
-          if (result.isConfirmed) {
-          axios.delete(`/supplier/${id}`)
-          .then((response) => {
-           getUsers();
-          }).catch(()=>{
 
-          });
-          Swal.fire(
-              "Deleted!",
-              "Your file has been deleted.", "success"
-           );
-          }
-      });
-  };
   </script>

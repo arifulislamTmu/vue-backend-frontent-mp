@@ -146,6 +146,31 @@
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                         data-accordion="false">
+
+                        <li class="nav-item">
+                            <a href="#" active-class="active" class="nav-link ">
+                                <i class="nav-icon fas fa-edit"></i>
+                                <p>
+                                   Order Details
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <router-link to="/today-order" class="nav-link" active-class="active">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Today Orders</p>
+                                    </router-link>
+                                </li>
+                                <li class="nav-item">
+                                    <router-link to="/order-list" class="nav-link" active-class="active">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Order list</p>
+                                    </router-link>
+                                 </li>
+                            </ul>
+                        </li>
+
                         <li class="nav-item">
                             <a href="#" active-class="active" class="nav-link ">
                                 <i class="nav-icon fas fa-edit"></i>
@@ -289,9 +314,16 @@
                                         <p>Salary list</p>
                                     </router-link>
                                  </li>
-
-
                             </ul>
+                        </li>
+
+                        <li class="nav-item">
+                            <router-link to="/customer-list" active-class="active" class="nav-link">
+                                <i class="nav-icon fas fa-th"></i>
+                                <p>
+                                    Customer
+                                </p>
+                            </router-link>
                         </li>
 
                         <li class="nav-item">

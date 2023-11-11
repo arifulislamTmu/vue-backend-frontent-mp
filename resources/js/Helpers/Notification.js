@@ -20,6 +20,13 @@ class Notification {
             title: "Successfully done!",
         });
     }
+
+    remove(msg) {
+        Toast.fire({
+            icon: "success",
+            title: "Successfully removed !",
+        });
+    }
 }
 
 export default Notification = new Notification();

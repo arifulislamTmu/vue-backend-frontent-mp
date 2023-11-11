@@ -32,6 +32,19 @@ import salaryEdit from "./components/salary/paySalaryEdit.vue";
 // Point of sale
 import PointOfSale from "./components/pos/point-of-sale.vue";
 
+//customer list
+import customerList from "./components/customer/customerList.vue";
+
+//Order details list
+import todayOrder from "./components/orders/todayOrder.vue";
+import orderList from "./components/orders/orderList.vue";
+import orderDetails from "./components/orders/orderDetails.vue";
+
+//login
+
+import Login from "./components/login/login.vue";
+
+
 
 import AppointmentsList from "./pages/appointments/appointmentsList.vue";
 
@@ -39,6 +52,12 @@ import Settings from "./pages/setting/setting.vue";
 import Profile from "./pages/profile/profile.vue";
 
 export default [
+
+    {
+        path: "/",
+        name: "Login",
+        component: Login,
+    },
     {
         path: "/admin/dashboard",
         name: "admin.dashboard",
@@ -48,6 +67,23 @@ export default [
         path: "/salary-edit/:id",
         name: "salary-edit",
         component: salaryEdit,
+    },
+
+    {
+        path: "/today-order",
+        name: "todayOrder",
+        component: todayOrder,
+    },
+    {
+        path: "/order-details/:id",
+        name: "orderDetails",
+        component: orderDetails,
+    },
+
+    {
+        path: "/order-list",
+        name: "orderList",
+        component: orderList,
     },
 
 
@@ -162,6 +198,12 @@ export default [
     },
 
 
+
+    {
+        path: "/customer-list",
+        name: "customer-list",
+        component: customerList,
+    },
 
 
 
