@@ -7,6 +7,9 @@ import { createRouter, createWebHistory } from "vue-router";
 import Routes from "./routes.js";
 import Swal from "sweetalert2";
 
+// local storage pania
+import { createPinia } from 'pinia';
+
 //Import notification
 import Notification from "./Helpers/Notification";
 
@@ -21,17 +24,18 @@ const Toast = Swal.mixin({
         toast.addEventListener("mouseleave", Swal.resumeTimer);
     },
 });
-
+import App from "./App.vue";
 window.Toast = Toast;
 window.Swal = Swal;
 window.Notification = Notification;
 
-const app = createApp({});
-
+const app = createApp(App);
+const pinia = createPinia()
 const router = createRouter({
     routes: Routes,
     history: createWebHistory(),
 });
 
-app.use(router);
+app.use(router)
+app.use(pinia)
 app.mount("#app");

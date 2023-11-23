@@ -21,6 +21,13 @@ class Notification {
         });
     }
 
+    loggedIn(msg) {
+        Toast.fire({
+            icon: "success",
+            title: "Successfully Logged In",
+        });
+    }
+
     remove(msg) {
         Toast.fire({
             icon: "success",

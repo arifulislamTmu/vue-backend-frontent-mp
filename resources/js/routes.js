@@ -212,14 +212,6 @@ export default [
         name: "admin.appointments",
         component: AppointmentsList,
     },
-    {
-        path: "/admin/setting",
-        name: "admin.setting",
-        component: Settings,
-    },
-    {
-        path: "/admin/profile",
-        name: "admin.profile",
-        component: Profile,
-    },
+
+
 ];

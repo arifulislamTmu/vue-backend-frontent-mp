@@ -14,6 +14,7 @@
         "@vitejs/plugin-vue": "^4.4.0",
         "admin-lte": "^3.2.0",
         "noty": "^3.2.0-beta-deprecated",
+        "pinia": "^2.1.7",
         "sweetalert2": "^11.7.32",
         "vee-validate": "^4.11.8",
         "vue-router": "^4.2.5",
