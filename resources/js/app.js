@@ -39,3 +39,24 @@ const router = createRouter({
 app.use(router)
 app.use(pinia)
 app.mount("#app");
+
+import { userStore } from './Store/userStore.js';
+const store = userStore();
+
+router.beforeEach((to, from, next) => {
+    if (to.name === 'Login' && store.getToken) {
+        next({ name: 'admin.dashboard' });
+    }
+    else if (to.meta.requiresAuth === true) {
+        const isAuthenticated = store.getToken;
+        if (isAuthenticated) {
+            next();
+        } else {
+            next({ name: 'Login' });
+        }
+    }
+    else {
+        next();
+    }
+});
+

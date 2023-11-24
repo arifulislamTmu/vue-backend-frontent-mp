@@ -10,7 +10,9 @@
 </head>
 
 <body class="hold-transition sidebar-mini">
-    <div class="wrapper" id="app"></div>
+    <div class="wrapper" id="app">
+
+    </div>
 </body>
 
 </html>

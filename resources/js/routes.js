@@ -62,28 +62,33 @@ export default [
         path: "/admin/dashboard",
         name: "admin.dashboard",
         component: Dashboard,
+        meta: {   requiresAuth: true }
     },
     {
         path: "/salary-edit/:id",
         name: "salary-edit",
         component: salaryEdit,
+        meta: {   requiresAuth: true }
     },
 
     {
         path: "/today-order",
         name: "todayOrder",
         component: todayOrder,
+        meta: {   requiresAuth: true }
     },
     {
         path: "/order-details/:id",
         name: "orderDetails",
         component: orderDetails,
+        meta: {   requiresAuth: true }
     },
 
     {
         path: "/order-list",
         name: "orderList",
         component: orderList,
+        meta: {   requiresAuth: true }
     },
 
 
@@ -92,64 +97,76 @@ export default [
         path: "/create-employe",
         name: "createEmployee",
         component: createEmployee,
+        meta: {   requiresAuth: true }
     },
     {
         path: "/list-employee",
         name: "listEmployee",
         component: listEmployee,
+        meta: {   requiresAuth: true }
     },
     {
         path: "/edit-employee/:id",
         name: "edit-employee",
         component: editEmployee,
+        meta: {   requiresAuth: true }
     },
 
     {
         path: "/create-supplier",
         name: "createSupplier",
         component: createSupplier,
+        meta: {   requiresAuth: true }
     },
     {
         path: "/list-supplier",
         name: "listSupplier",
         component: listSupplier,
+        meta: {   requiresAuth: true }
     },
     {
         path: "/edit-supplier/:id",
         name: "edit-supplier",
         component: editSupplier,
+        meta: {   requiresAuth: true }
     },
 
     {
         path: "/create-category",
         name: "createCategory",
         component: createCategory,
+        meta: {   requiresAuth: true }
     },
     {
         path: "/list-category",
         name: "listCategory",
         component: listCategory,
+        meta: {   requiresAuth: true }
     },
     {
         path: "/edit-category/:id",
         name: "edit-category",
         component: editCategory,
+        meta: {   requiresAuth: true }
     },
 
     {
         path: "/create-product",
         name: "createProduct",
         component: createProduct,
+        meta: {   requiresAuth: true }
     },
     {
         path: "/list-product",
         name: "listProduct",
         component: listProduct,
+        meta: {   requiresAuth: true }
     },
     {
         path: "/edit-product/:id",
         name: "edit-product",
         component: editProduct,
+        meta: {   requiresAuth: true }
     },
 
 
@@ -157,61 +174,63 @@ export default [
         path: "/create-expanse",
         name: "createExpanse",
         component: createExpanse,
+        meta: {   requiresAuth: true }
     },
     {
         path: "/list-expanse",
         name: "listExpanse",
         component: listExpanse,
+        meta: {   requiresAuth: true }
     },
     {
         path: "/edit-expanse/:id",
         name: "edit-expanse",
         component: editExpanse,
+        meta: {   requiresAuth: true }
     },
-
-
     {
         path: "/all-salary",
         name: "allSalary",
         component: AllSalary,
+        meta: {   requiresAuth: true }
     },
     {
         path: "/list-salary",
         name: "listSalary",
         component: listSalary,
+        meta: {   requiresAuth: true }
     },
     {
         path: "/pay-salary/:id",
         name: "pay-salary",
         component: editSalary,
+        meta: {   requiresAuth: true }
     },
     {
         path: "/pay-salary-details/:id",
         name: "pay-salary-details",
         component: paySalaryDetails,
+        meta: {   requiresAuth: true }
     },
 
     {
         path: "/point-of-sale",
         name: "point-of-sale",
         component: PointOfSale,
+        meta: {   requiresAuth: true }
     },
-
-
-
     {
         path: "/customer-list",
         name: "customer-list",
         component: customerList,
+        meta: {   requiresAuth: true }
     },
-
-
-
     {
         path: "/admin/appointments",
         name: "admin.appointments",
         component: AppointmentsList,
-    },
+        meta: {   requiresAuth: true }
+    }
 
 
 ];
