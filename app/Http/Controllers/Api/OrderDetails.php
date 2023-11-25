@@ -15,7 +15,7 @@ class OrderDetails extends Controller
                 ->select('customers.cus_name','orders.*')
                 ->orderBy('orders.id',"DESC")
                 ->where('orders.order_date', $date)
-                ->get();
+                ->paginate(2);
                 return response()->json($orders);
     }
 

@@ -1,4 +1,5 @@
 <template>
+  <div>
     <div class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
@@ -74,21 +75,35 @@
                           type="text"
                           class="form-control"
                           v-model="form.shop_name"
-                            placeholder="Shop Name"
+                          placeholder="Shop Name"
                         />
                       </div>
                     </div>
 
                     <div class="col-6">
                       <div class="row">
-                          <div class="col-6 ">
-                              <div class="mb-3">
-                                  <input type="file" class="form-control" @change="onSelectedFile" />
-                                </div>
+                        <div class="col-6">
+                          <div class="mb-3">
+                            <input
+                              type="file"
+                              class="form-control"
+                              @change="onSelectedFile"
+                            />
                           </div>
-                          <div class="col-6 " v-if="form.photo">
-                              <img :src="form.photo" alt="" id="image" style=" width: 80px; height: 60px; border:2px solid red; margin-bottom:2px;" />
-                          </div>
+                        </div>
+                        <div class="col-6" v-if="form.photo">
+                          <img
+                            :src="form.photo"
+                            alt=""
+                            id="image"
+                            style="
+                              width: 80px;
+                              height: 60px;
+                              border: 2px solid red;
+                              margin-bottom: 2px;
+                            "
+                          />
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -100,47 +115,48 @@
         </div>
       </div>
     </div>
-  </template>
-  <!-- vue -->
-  <script setup>
-  import { ref, reactive } from "vue";
-  import { useRouter } from "vue-router";
-  import axios from "axios";
-  const router = useRouter();
-  const form = reactive({
-    name: null,
-    email: null,
-    address: null,
-    shop_name: null,
-    photo: "",
-  });
+  </div>
+</template>
+<!-- vue -->
+<script setup>
+import { ref, reactive } from "vue";
+import { useRouter } from "vue-router";
+import axios from "axios";
+const router = useRouter();
+const form = reactive({
+  name: null,
+  email: null,
+  address: null,
+  shop_name: null,
+  photo: "",
+});
 
-  const errors = ref({
-    name: null,
-    email: null,
-  });
+const errors = ref({
+  name: null,
+  email: null,
+});
 
-  let msg = "Something Went Wrong !!";
+let msg = "Something Went Wrong !!";
 
-  const onSelectedFile = (event) => {
-    let file = event.target.files[0];
+const onSelectedFile = (event) => {
+  let file = event.target.files[0];
 
-    let reader = new FileReader();
-    reader.onload = (event) => {
-      form.photo = event.target.result;
-    };
-
-    reader.readAsDataURL(file);
+  let reader = new FileReader();
+  reader.onload = (event) => {
+    form.photo = event.target.result;
   };
-  const storeSupplier = () => {
-    axios
-      .post("/supplier/", form)
-      .then((response) => {
-        Notification.success(msg);
-        router.push("/list-supplier");
-      })
-      .catch((error) => {
-        errors.value = error.response.data.errors;
-      });
-  };
-  </script>
+
+  reader.readAsDataURL(file);
+};
+const storeSupplier = () => {
+  axios
+    .post("/supplier/", form)
+    .then((response) => {
+      Notification.success(msg);
+      router.push("/list-supplier");
+    })
+    .catch((error) => {
+      errors.value = error.response.data.errors;
+    });
+};
+</script>
